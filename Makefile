@@ -51,15 +51,45 @@ cc-all: cc-datagen cc-features cc-streaming-features cc-train cc-deploy
 aq-clean:
 	python mlfs/clean_hopsworks_resources.py aq
 
+aq-features-all:
+	ipython notebooks/airquality/1_air_quality_feature_backfill.ipynb -- -- id 1
+	ipython notebooks/airquality/1_air_quality_feature_backfill.ipynb -- -- id 2
+	ipython notebooks/airquality/1_air_quality_feature_backfill.ipynb -- -- id 3
+
+
+
+id ?=1
 aq-features:
-	ipython notebooks/airquality/1_air_quality_feature_backfill.ipynb
+	ipython notebooks/airquality/1_air_quality_feature_backfill.ipynb -- -- id $(id)
 
 aq-train:
-	ipython notebooks/airquality/3_air_quality_training_pipeline.ipynb
+	ipython notebooks/airquality/3_air_quality_training_pipeline.ipynb -- -- id $(id)
+
+aq-train-all:
+	ipython notebooks/airquality/3_air_quality_training_pipeline.ipynb -- -- id 1
+	ipython notebooks/airquality/3_air_quality_training_pipeline.ipynb -- -- id 2
+	ipython notebooks/airquality/3_air_quality_training_pipeline.ipynb -- -- id 3
+
+
 
 aq-inference:
-	ipython notebooks/airquality/2_air_quality_feature_pipeline.ipynb
-	ipython notebooks/airquality/4_air_quality_batch_inference.ipynb
+	ipython notebooks/airquality/2_air_quality_feature_pipeline.ipynb -- -- id $(id)
+	ipython notebooks/airquality/4_air_quality_batch_inference.ipynb -- -- id $(id)
+
+aq-inference-all:
+	ipython notebooks/airquality/2_air_quality_feature_pipeline.ipynb -- -- id 1
+	ipython notebooks/airquality/2_air_quality_feature_pipeline.ipynb -- -- id 2
+	ipython notebooks/airquality/2_air_quality_feature_pipeline.ipynb -- -- id 3
+	ipython notebooks/airquality/4_air_quality_batch_inference.ipynb -- -- id 1
+	ipython notebooks/airquality/4_air_quality_batch_inference.ipynb -- -- id 2
+	ipython notebooks/airquality/4_air_quality_batch_inference.ipynb -- -- id 3
+
+
+
+
+
+
+
 
 aq-llm:
 	ipython notebooks/airquality/5_function_calling.ipynb

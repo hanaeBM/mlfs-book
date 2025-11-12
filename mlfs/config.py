@@ -28,11 +28,24 @@ class HopsworksSettings(BaseSettings):
 
     # Air Quality
     AQICN_API_KEY: SecretStr | None = None
-    AQICN_COUNTRY: str | None = None
-    AQICN_CITY: str | None = None
-    AQICN_STREET: str | None = None
-    AQICN_URL: str | None = None
+    AQICN_COUNTRY_1: str | None = None
+    AQICN_CITY_1: str | None = None
+    AQICN_STREET_1: str | None = None
+    AQICN_URL_1: str | None = None
+    AQICN_CSV_1: str | None = None
     
+    AQICN_COUNTRY_2: str | None = None
+    AQICN_CITY_2: str | None = None
+    AQICN_STREET_2: str | None = None
+    AQICN_URL_2: str | None = None
+    AQICN_CSV_2: str | None = None
+    
+    AQICN_COUNTRY_3: str | None = None
+    AQICN_CITY_3: str | None = None
+    AQICN_STREET_3: str | None = None
+    AQICN_URL_3: str | None = None
+    AQICN_CSV_3: str | None = None
+
     # Other API Keys
     FELDERA_API_KEY: SecretStr | None = None    
     OPENAI_API_KEY: SecretStr | None = None
@@ -88,21 +101,61 @@ class HopsworksSettings(BaseSettings):
         if not aqicn_api_key:
             missing.append("AQICN_API_KEY")
         # 3. AQICN_COUNTRY
-        aqicn_country = self.AQICN_COUNTRY or os.getenv("AQICN_COUNTRY")
-        if not aqicn_country:
-            missing.append("AQICN_COUNTRY")
+        aqicn_country_1 = self.AQICN_COUNTRY_1 or os.getenv("AQICN_COUNTRY_1")
+        if not aqicn_country_1:
+            missing.append("AQICN_COUNTRY_1")
+
+        aqicn_country_2 = self.AQICN_COUNTRY_2 or os.getenv("AQICN_COUNTRY_2")
+        if not aqicn_country_2:
+            missing.append("AQICN_COUNTRY_2")
+        
+        aqicn_country_3 = self.AQICN_COUNTRY_3 or os.getenv("AQICN_COUNTRY_3")
+        if not aqicn_country_3:
+            missing.append("AQICN_COUNTRY_3")
+            
         # 4. AQICN_CITY
-        aqicn_city = self.AQICN_CITY or os.getenv("AQICN_CITY")
-        if not aqicn_city:
-            missing.append("AQICN_CITY")
+        aqicn_city_1 = self.AQICN_CITY_1 or os.getenv("AQICN_CITY_1")
+        if not aqicn_city_1:
+            missing.append("AQICN_CITY_1")
+        aqicn_city_2 = self.AQICN_CITY_2 or os.getenv("AQICN_CITY_2")
+        if not aqicn_city_2:
+            missing.append("AQICN_CITY_2")
+        aqicn_city_3 = self.AQICN_CITY_3 or os.getenv("AQICN_CITY_3")
+        if not aqicn_city_3:    
+            missing.append("AQICN_CITY_3")
         # 5. AQICN_STREET
-        aqicn_street = self.AQICN_STREET or os.getenv("AQICN_STREET")
-        if not aqicn_street:
-            missing.append("AQICN_STREET")
+        aqicn_street_1 = self.AQICN_STREET_1 or os.getenv("AQICN_STREET_1")
+        if not aqicn_street_1:
+            missing.append("AQICN_STREET_1")
+        aqicn_street_2 = self.AQICN_STREET_2 or os.getenv("AQICN_STREET_2")
+        if not aqicn_street_2:
+            missing.append("AQICN_STREET_2")
+            
+        aqicn_street_3 = self.AQICN_STREET_3 or os.getenv("AQICN_STREET_3")
+        if not aqicn_street_3:
+            missing.append("AQICN_STREET_3")
+            
         # 6. AQICN_URL
-        aqicn_url = self.AQICN_URL or os.getenv("AQICN_URL")
-        if not aqicn_url:
-            missing.append("AQICN_URL")
+        aqicn_url_1 = self.AQICN_URL_1 or os.getenv("AQICN_URL_1")
+        if not aqicn_url_1:
+            missing.append("AQICN_URL_1")
+        aqicn_url_2 = self.AQICN_URL_2 or os.getenv("AQICN_URL_2")
+        if not aqicn_url_2:
+            missing.append("AQICN_URL_2")       
+        aqicn_url_3 = self.AQICN_URL_3 or os.getenv("AQICN_URL_3")
+        if not aqicn_url_3:
+            missing.append("AQICN_URL_3")
+            
+        #7. AQICN_CSV
+        aqicn_csv_1 = self.AQICN_CSV_1 or os.getenv("AQICN_CSV_1")
+        if not aqicn_csv_1:
+            missing.append("AQICN_CSV_1")
+        aqicn_csv_2 = self.AQICN_CSV_2 or os.getenv("AQICN_CSV_2")
+        if not aqicn_csv_2:
+            missing.append("AQICN_CSV_2")
+        aqicn_csv_3 = self.AQICN_CSV_3 or os.getenv("AQICN_CSV_3")
+        if not aqicn_csv_3:
+            missing.append("AQICN_CSV_3")
 
         if missing:
             raise ValueError(
