@@ -31,7 +31,9 @@ jobs:
         env:
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
         run: |
-          make aq-inference
+          make aq-inference id=1
+          make aq-inference id=2
+          make aq-inference id=3
       - name: github pages publish
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
