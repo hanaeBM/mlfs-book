@@ -52,6 +52,5 @@ jobs:
 
           skip_checkout: true
           
-          fail_on_empty_commit: false
 
           push_options: '--force'
