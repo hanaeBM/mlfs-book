@@ -60,7 +60,7 @@ aq-features-all:
 
 id ?=1
 aq-features:
-	ipython notebooks/airquality/1_air_quality_feature_backfill.ipynb -- -- id $(id)
+	ipython notebooks/airquality/1_air_quality_feature_backfill.ipynb
 
 aq-train:
 	ipython notebooks/airquality/3_air_quality_training_pipeline.ipynb -- -- id $(id)
