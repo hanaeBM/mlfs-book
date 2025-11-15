@@ -51,6 +51,5 @@ jobs:
           skip_fetch: true
 
           skip_checkout: true
-          
 
           push_options: '--force'
