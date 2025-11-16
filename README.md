@@ -245,7 +245,6 @@ Potential enhancements to consider:
 
 ### Prerequisites
 - Python 3.8+
-- Poetry
 - Hopsworks account
 - GitHub account (for Actions)
 
